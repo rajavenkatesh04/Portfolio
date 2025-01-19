@@ -53,7 +53,7 @@ const Header = () => {
       <div className="md:hidden relative">
         <header className="flex justify-between items-center px-6 py-4 bg-white z-50">
           <img
-            src="/src/assets/Green White Professional Minimal Brand Logo.png"
+            src="/Green White Professional Minimal Brand Logo.png"
             alt="Brand Logo"
             className="max-h-[38px] w-auto object-contain"
           />
