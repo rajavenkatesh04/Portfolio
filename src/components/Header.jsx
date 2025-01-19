@@ -11,7 +11,6 @@ const Header = () => {
 
   const menuItems = [
     { href: "#projects", label: "Projects", delay: "100" },
-    { href: "#resume", label: "Resume", delay: "150" },
     { href: "#about", label: "About me", delay: "200" }
   ];
 
@@ -32,7 +31,7 @@ const Header = () => {
               </a>
             ))}
             <button className="text-gray-600 hover:text-gray-900 transition-colors duration-200">
-              Use this template
+              Download my resume
             </button>
           </nav>
         </header>
@@ -41,7 +40,6 @@ const Header = () => {
 
       {/* Mobile Header */}
       <div className="md:hidden relative">
-        {/* Fixed Header */}
         <header className="bg-white">
           <div className="flex justify-between items-center px-6 py-4">
             <div className="text-xl font-normal">Raja Venkatesh</div>
@@ -69,12 +67,12 @@ const Header = () => {
           <div className="fixed top-0 left-0 right-0 bg-white">
             <div className="flex justify-between items-center px-6 py-4">
               <div className="text-xl font-normal">Raja Venkatesh</div>
-              <div className="w-10 h-10" /> {/* Spacer to maintain layout */}
+              <div className="w-10 h-10" />
             </div>
             <div className="h-px bg-gray-200 w-full" />
           </div>
           
-          <div className="px-6 pt-24"> {/* Added padding top to account for fixed header */}
+          <div className="px-6 pt-24"> 
             <nav className="flex flex-col gap-8 text-xl">
               {menuItems.map((item, index) => (
                 <a 
@@ -102,7 +100,7 @@ const Header = () => {
                   transitionDelay: isMenuOpen ? '300ms' : '0s'
                 }}
               >
-                Use this template
+                Download Resume
               </button>
             </nav>
           </div>

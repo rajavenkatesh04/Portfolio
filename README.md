@@ -26,11 +26,11 @@ This repository is the codebase for my **personal portfolio website**. Here’s 
 ## 🛠️ Tech Stack
 
 I’ve built this portfolio with:
-- **HTML5** \- 
-- **CSS3** \- 
+- **HTML5** \- Core
+- **CSS3** \- Making it Simple & elegant
 - **JavaScript** \- Bringing interactions to life.
 - **React.js** \- Because SPAs are cool. 
-- **Node.js** \- 
+- **Node.js** \- Backend
 
 ---
 
@@ -65,9 +65,9 @@ Here are some milestones I’m working toward:
 
 ## 🤝 Connect with Me
 
-- [**Email:**](mailto:grv.9604@gmail.com)
-- [**LinkedIn:**](https://linkedin.com/in/guthularajavenkatesh)  
-- [**GitHub:**](https://github.com/rajavenkatesh04)  
+- [**Email**](mailto:grv.9604@gmail.com)
+- [**LinkedIn**](https://linkedin.com/in/guthularajavenkatesh)  
+- [**GitHub**](https://github.com/rajavenkatesh04)  
 
 ---
 
