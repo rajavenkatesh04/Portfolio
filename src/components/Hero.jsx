@@ -4,7 +4,7 @@ function Hero(){
     return(
         <>
         <div className="hero">
-            <h1>HeroSection</h1>
+            <h1></h1>
         </div>
         </>
     )

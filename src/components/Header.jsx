@@ -19,7 +19,12 @@ const Header = () => {
       {/* Desktop Header */}
       <div className="relative">
         <header className="hidden md:flex justify-between items-center px-6 py-4">
-          <div className="text-xl font-normal">Raja Venkatesh</div>
+          <img
+            src="/src/assets/Green White Professional Minimal Brand Logo.png"
+            alt="Brand Logo"
+            className="max-h-[38px] w-auto object-contain"
+          />
+
           <nav className="flex gap-8">
             {menuItems.map(item => (
               <a
@@ -34,8 +39,8 @@ const Header = () => {
               className="text-gray-600 hover:text-gray-900 transition-all duration-200 transform hover:scale-105 active:scale-95"
               onClick={() => {
                 const link = document.createElement('a');
-                link.href = '/RajaVenkatesh_Resume.pdf'; 
-                link.download = 'RajaVenkatesh_Resume.pdf'; 
+                link.href = '/RajaVenkatesh_Resume.pdf';
+                link.download = 'RajaVenkatesh_Resume.pdf';
                 link.click();
               }}
             >

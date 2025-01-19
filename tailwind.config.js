@@ -5,7 +5,11 @@ export default {
     "./index.html"  // Include your index.html file
   ],
   theme: {
-    extend: {},
+    extend: {
+
+      playfair: ['Playfair Display', 'serif'],
+      suranna: ['Suranna', 'serif'],
+    },
   },
   plugins: [],
 }
