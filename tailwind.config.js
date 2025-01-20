@@ -6,9 +6,16 @@ export default {
   ],
   theme: {
     extend: {
-
-      playfair: ['Playfair Display', 'serif'],
-      suranna: ['Suranna', 'serif'],
+      colors: {
+        white: "#ffffff",
+        lightGray: "#f3f3f2",
+        mediumGray: "#afafac",
+        darkGray: "#4a4a45",
+        blue: "#0000ee",
+        grayText: "#444444",
+        darkText: "#2a2a28",
+        black: "#000000",
+      }
     },
   },
   plugins: [],
