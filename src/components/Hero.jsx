@@ -2,7 +2,7 @@ import React from "react";
 
 function Hero() {
   return (
-    <div className="min-h-screen bg-[#ffffff] flex flex-col justify-center px-6">
+    <div id="hero" className="min-h-screen bg-[#ffffff] flex flex-col justify-center px-6">
       <div className="max-w-4xl">
         <img
           src="/Raja.png"
@@ -20,8 +20,6 @@ function Hero() {
         </p>
       </div>
     </div>
-
-    
   );
 }
 

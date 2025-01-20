@@ -11,9 +11,10 @@ const Header = () => {
   };
 
   const menuItems = [
+    { href: "#hero", label: "About" },
     { href: "#skills", label: "Skills" },
     { href: "#projects", label: "Projects" },
-    { href: "#about", label: "About me" },
+    { href: "#contact", label: "Contact" },
   ];
 
   return (
@@ -29,14 +30,13 @@ const Header = () => {
           {menuItems.map((item) => (
             <a
               key={item.href}
-              href={item.href}
+              href={item.href} // Link now uses hash-based navigation
               className="text-gray-600 hover:text-gray-900 transition-colors duration-200 text-base"
             >
               {item.label}
             </a>
           ))}
           <DownloadButton />
-
         </nav>
       </header>
 
@@ -54,16 +54,13 @@ const Header = () => {
         >
           <div className="space-y-1.5">
             <div
-              className={`w-6 h-0.5 bg-gray-600 transition-all duration-300 transform ${isMenuOpen ? "rotate-45 translate-y-2" : ""
-                }`}
+              className={`w-6 h-0.5 bg-gray-600 transition-all duration-300 transform ${isMenuOpen ? "rotate-45 translate-y-2" : ""}`}
             ></div>
             <div
-              className={`w-6 h-0.5 bg-gray-600 transition-opacity duration-300 ${isMenuOpen ? "opacity-0" : "opacity-100"
-                }`}
+              className={`w-6 h-0.5 bg-gray-600 transition-opacity duration-300 ${isMenuOpen ? "opacity-0" : "opacity-100"}`}
             ></div>
             <div
-              className={`w-6 h-0.5 bg-gray-600 transition-all duration-300 transform ${isMenuOpen ? "-rotate-45 -translate-y-2" : ""
-                }`}
+              className={`w-6 h-0.5 bg-gray-600 transition-all duration-300 transform ${isMenuOpen ? "-rotate-45 -translate-y-2" : ""}`}
             ></div>
           </div>
         </button>
@@ -71,17 +68,15 @@ const Header = () => {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 bg-white/90 backdrop-blur-sm z-40 transition-all duration-500 ease-in-out ${isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
-          }`}
+        className={`fixed inset-0 bg-white/90 backdrop-blur-sm z-40 transition-all duration-500 ease-in-out ${isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"}`}
       >
         <div className="px-6 pt-24">
           <nav className="flex flex-col gap-8 text-xl">
             {menuItems.map((item, index) => (
               <a
                 key={item.href}
-                href={item.href}
-                className={`text-gray-600 hover:text-gray-900 transition-all duration-500 transform ${isMenuOpen ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0"
-                  }`}
+                href={item.href} // Link now uses hash-based navigation
+                className={`text-gray-600 hover:text-gray-900 transition-all duration-500 transform ${isMenuOpen ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0"}`}
                 style={{ transitionDelay: isMenuOpen ? `${index * 100}ms` : "0s" }}
                 onClick={toggleMenu}
               >
@@ -89,8 +84,7 @@ const Header = () => {
               </a>
             ))}
             <button
-              className={`mt-auto bg-gray-900 text-white py-3 px-4 rounded-lg w-full transition-all duration-500 hover:bg-gray-800 ${isMenuOpen ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0"
-                }`}
+              className={`mt-auto bg-gray-900 text-white py-3 px-4 rounded-lg w-full transition-all duration-500 hover:bg-gray-800 ${isMenuOpen ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0"}`}
               style={{ transitionDelay: isMenuOpen ? "300ms" : "0s" }}
               onClick={() => {
                 const link = document.createElement("a");

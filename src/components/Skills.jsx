@@ -10,7 +10,7 @@ function Skills() {
   ];
 
   return (
-    <div
+    <div id="skills"
       className="skills-container bg-gray-50 rounded-lg p-6 shadow-md"
       style={{ backgroundColor: "#f3f3f2" }}
     >
