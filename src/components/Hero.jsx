@@ -5,7 +5,7 @@ function Hero() {
     <div id="hero" className="min-h-screen bg-[#ffffff] flex flex-col justify-center px-6">
       <div className="max-w-4xl">
         <img
-          src="/Raja.png"
+          src="/ayyou3hqq.png"
           alt="Photo"
           className="w-32 h-32 rounded-full mb-6"
         />
