@@ -1,9 +1,43 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "boxicons";
 import DownloadButton from "./DownloadButton";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+
+  useEffect(() => {
+    // Create the intersection observer
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          // Only fade out when footer is fully visible
+          if (entry.intersectionRatio >= 0.95) {
+            setIsVisible(false);
+          } else {
+            setIsVisible(true);
+          }
+        });
+      },
+      {
+        threshold: 0.95, // Trigger when 95% of the footer is visible
+        rootMargin: '0px' // No margin to ensure precise measurement
+      }
+    );
+
+    // Start observing the footer
+    const footer = document.querySelector('footer');
+    if (footer) {
+      observer.observe(footer);
+    }
+
+    // Cleanup observer on component unmount
+    return () => {
+      if (footer) {
+        observer.unobserve(footer);
+      }
+    };
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen((prevState) => !prevState);
@@ -17,10 +51,14 @@ const Header = () => {
     { href: "#contact", label: "Contact" },
   ];
 
+  const headerClasses = `sticky top-0 z-50 bg-white/70 backdrop-blur-md shadow-sm transition-opacity duration-300 ${
+    isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'
+  }`;
+
   return (
     <>
       {/* Desktop Header */}
-      <header className="sticky top-0 z-50 bg-white/70 backdrop-blur-md shadow-sm hidden md:flex justify-between items-center px-6 py-4">
+      <header className={`${headerClasses} hidden md:flex justify-between items-center px-6 py-4`}>
         <img
           src="/Green White Professional Minimal Brand Logo.png"
           alt="Brand Logo"
@@ -30,7 +68,7 @@ const Header = () => {
           {menuItems.map((item) => (
             <a
               key={item.href}
-              href={item.href} // Link now uses hash-based navigation
+              href={item.href}
               className="text-gray-600 hover:text-gray-900 transition-colors duration-200 text-base"
             >
               {item.label}
@@ -41,7 +79,7 @@ const Header = () => {
       </header>
 
       {/* Mobile Header */}
-      <header className="sticky top-0 z-50 bg-white/70 backdrop-blur-md shadow-sm flex justify-between items-center px-6 py-4 md:hidden">
+      <header className={`${headerClasses} flex justify-between items-center px-6 py-4 md:hidden`}>
         <img
           src="/Green White Professional Minimal Brand Logo.png"
           alt="Brand Logo"
@@ -75,7 +113,7 @@ const Header = () => {
             {menuItems.map((item, index) => (
               <a
                 key={item.href}
-                href={item.href} // Link now uses hash-based navigation
+                href={item.href}
                 className={`text-gray-600 hover:text-gray-900 transition-all duration-500 transform ${isMenuOpen ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0"}`}
                 style={{ transitionDelay: isMenuOpen ? `${index * 100}ms` : "0s" }}
                 onClick={toggleMenu}

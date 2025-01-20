@@ -29,7 +29,7 @@ const Footer = () => {
         {/* Copyright */}
         <div className="max-w-7xl mx-auto px-6 py-6 text-zinc-500 text-sm border-t border-zinc-800">
           <div className="flex items-center justify-center gap-2">
-            Copyright © {new Date().getFullYear()} by
+            Copyright   © {new Date().getFullYear()}   by
             <img
               src="/FooterLogoLight.png"
               alt="Brand Logo"

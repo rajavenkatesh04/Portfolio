@@ -10,9 +10,10 @@ function Hero() {
           className="w-32 h-32 rounded-full mb-6"
         />
         <h1 className="text-4xl font-bold text-[#2a2a28] leading-tight font-[Manrope] mb-4">
-          I'm Raja, a Java & Full-Stack developer specializing in creating
+          I'm <span className="font-[] text-[] text-10xl">Raja</span>, a Java & Full-Stack developer specializing in creating
           user-friendly & minimalistic websites based in Chennai, India.
         </h1>
+
         <p className="text-lg text-[#4a4a45] leading-relaxed font-[Manrope]">
           Leveraging expertise in modern web technologies, I focus on building
           sleek and efficient solutions that prioritize performance and user
