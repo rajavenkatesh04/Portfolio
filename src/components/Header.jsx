@@ -48,7 +48,7 @@ const Header = () => {
     { href: "#hero", label: "About" },
     { href: "#skills", label: "Skills" },
     { href: "#projects", label: "Projects" },
-    { href: "#contact", label: "Contact" },
+    { href: "#footer", label: "Contact" },
   ];
 
   const headerClasses = `sticky top-0 z-50 bg-white/70 backdrop-blur-md shadow-sm transition-opacity duration-300 ${

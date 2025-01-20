@@ -4,7 +4,7 @@ import Weather from './Weather';
 
 const Footer = () => {
   return (
-    <footer className="bg-zinc-900 text-white font-['Manrope']">
+    <footer id='footer' className="bg-zinc-900 text-white font-['Manrope']">
       {/* Main CTA Section */}
       <div className="w-full px-6 py-24 md:py-32">
         <div className="max-w-7xl mx-auto flex flex-col items-center">

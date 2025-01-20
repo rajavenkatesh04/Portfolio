@@ -8,16 +8,8 @@ const CoolCard = () => {
         <div className="dot" />
         <div className="card">
           <div className="ray" />
-          <div className="text">
-          <img
-            src="/Green White Professional Minimal Brand Logo.png"
-            alt="Brand Logo"
-            className="max-h-[38px] w-auto object-contain"
-          />
-          </div>
-          <div>
-          © {new Date().getFullYear()}
-          </div>
+          <div className="text">750k</div>
+          <div>Views</div>
           <div className="line topl" />
           <div className="line leftl" />
           <div className="line bottoml" />
