@@ -15,6 +15,7 @@ export default {
         grayText: "#444444",
         darkText: "#2a2a28",
         black: "#000000",
+        lightgreen: '#90EE90',
       }
     },
   },
