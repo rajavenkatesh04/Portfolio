@@ -19,7 +19,7 @@ const Footer = () => {
           </button>
 
           <div className="flex justify-center w-full">
-            <Weather />
+            
           </div>
         </div>
       </div>

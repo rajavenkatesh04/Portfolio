@@ -14,7 +14,7 @@ function Skills() {
       className="skills-container bg-gray-50 rounded-lg p-6 shadow-md"
       style={{ backgroundColor: "#f3f3f2" }}
     >
-      <h1 className="text-2xl font-bold text-gray-800 mb-6 text-center font-[Manrope]">
+      <h1  className="text-2xl font-bold text-gray-800 mb-6 text-center font-[Manrope]">
         Skills
       </h1>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6">

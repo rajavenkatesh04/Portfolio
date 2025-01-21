@@ -16,6 +16,7 @@ const Weather = () => {
         setWeatherData({
           temperature: data.main.temp,
           description: data.weather[0].description,
+          main: data.weather[0].main.toLowerCase()
         });
       } catch (error) {
         console.error('Error fetching weather data:', error);
@@ -35,20 +36,80 @@ const Weather = () => {
 
   const formattedTime = dateTime.toLocaleTimeString('en-GB');
 
+  const renderWeatherIcon = (type) => {
+    switch (type) {
+      case 'clear':
+        return (
+          <div className="weather-container">
+            <span className="sun sunshine" />
+            <span className="sun" />
+          </div>
+        );
+      case 'clouds':
+        return (
+          <div className="weather-container">
+            <div className="cloud front">
+              <span className="left-front" />
+              <span className="right-front" />
+            </div>
+            <div className="cloud back">
+              <span className="left-back" />
+              <span className="right-back" />
+            </div>
+          </div>
+        );
+      case 'rain':
+      case 'drizzle':
+        return (
+          <div className="weather-container">
+            <div className="cloud front">
+              <span className="left-front rain-cloud" />
+              <span className="right-front rain-cloud" />
+            </div>
+            <div className="cloud back">
+              <span className="left-back rain-cloud" />
+              <span className="right-back rain-cloud" />
+            </div>
+            <div className="rain">
+              <span className="drop" />
+              <span className="drop" />
+              <span className="drop" />
+            </div>
+          </div>
+        );
+      case 'mist':
+      case 'haze':
+      case 'fog':
+        return (
+          <div className="weather-container">
+            <div className="mist">
+              <span className="mist-layer" />
+              <span className="mist-layer" />
+              <span className="mist-layer" />
+            </div>
+          </div>
+        );
+      default:
+        return (
+          <div className="weather-container">
+            <div className="cloud front">
+              <span className="left-front" />
+              <span className="right-front" />
+            </div>
+            <div className="cloud back">
+              <span className="left-back" />
+              <span className="right-back" />
+            </div>
+          </div>
+        );
+    }
+  };
+
   return (
     <StyledWrapper>
       <div className="card">
         <div className="container">
-          <div className="cloud front">
-            <span className="left-front" />
-            <span className="right-front" />
-          </div>
-          <span className="sun sunshine" />
-          <span className="sun" />
-          <div className="cloud back">
-            <span className="left-back" />
-            <span className="right-back" />
-          </div>
+          {weatherData && renderWeatherIcon(weatherData.main)}
         </div>
         <div className="card-header">
           <span>Chennai, Tamil Nadu<br />India</span>
@@ -99,14 +160,20 @@ const StyledWrapper = styled.div`
     transform: scale(0.7);
   }
 
+  .weather-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
   .cloud {
     width: 100%;
+    position: relative;
   }
 
   .front {
     padding-top: clamp(25px, 5vw, 45px);
     margin-left: clamp(15px, 3vw, 25px);
-    display: inline;
     position: absolute;
     z-index: 11;
     animation: clouds 8s infinite;
@@ -165,9 +232,57 @@ const StyledWrapper = styled.div`
     background: -webkit-linear-gradient(to right, #fcbb04, #fffc00);
     background: linear-gradient(to right, #fcbb04, #fffc00);
     border-radius: 50%;
-    display: inline;
     position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
+
+  .rain-cloud {
+    background-color: #2c3e50;
+  }
+
+  .rain {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    z-index: 10;
+  }
+
+  .drop {
+    position: absolute;
+    background: #4c9beb;
+    width: 3px;
+    height: 15px;
+    border-radius: 50px;
+    animation: rain 1.5s infinite linear;
+  }
+
+  .drop:nth-child(1) { left: 10px; animation-delay: -0.1s; }
+  .drop:nth-child(2) { left: 25px; animation-delay: -0.4s; }
+  .drop:nth-child(3) { left: 40px; animation-delay: -0.7s; }
+
+  .mist {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+  }
+
+  .mist-layer {
+    position: absolute;
+    width: 100%;
+    height: 25px;
+    background: rgba(124, 124, 124, 0.5);
+    border-radius: 20px;
+    animation: mist 3s infinite ease-in-out;
+  }
+
+  .mist-layer:nth-child(1) { top: 20%; animation-delay: 0s; }
+  .mist-layer:nth-child(2) { top: 40%; animation-delay: -1s; }
+  .mist-layer:nth-child(3) { top: 60%; animation-delay: -2s; }
 
   .card-header {
     display: flex;
@@ -221,14 +336,13 @@ const StyledWrapper = styled.div`
     color: rgba(87, 77, 51, 0.7);
   }
 
-  /* Preserve animations */
   @keyframes sunshines {
     0% {
-      transform: scale(1);
+      transform: translate(-50%, -50%) scale(1);
       opacity: 0.6;
     }
     100% {
-      transform: scale(1.4);
+      transform: translate(-50%, -50%) scale(1.4);
       opacity: 0;
     }
   }
@@ -242,6 +356,32 @@ const StyledWrapper = styled.div`
     }
     100% {
       transform: translateX(15px);
+    }
+  }
+
+  @keyframes rain {
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(40px);
+      opacity: 0;
+    }
+  }
+
+  @keyframes mist {
+    0% {
+      transform: translateX(-10px);
+      opacity: 0.3;
+    }
+    50% {
+      transform: translateX(10px);
+      opacity: 0.6;
+    }
+    100% {
+      transform: translateX(-10px);
+      opacity: 0.3;
     }
   }
 

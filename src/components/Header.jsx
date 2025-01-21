@@ -74,7 +74,7 @@ const Header = () => {
               {item.label}
             </a>
           ))}
-          <DownloadButton />
+          {/* <DownloadButton /> */}
         </nav>
       </header>
 
@@ -121,18 +121,7 @@ const Header = () => {
                 {item.label}
               </a>
             ))}
-            <button
-              className={`mt-auto bg-gray-900 text-white py-3 px-4 rounded-lg w-full transition-all duration-500 hover:bg-gray-800 ${isMenuOpen ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0"}`}
-              style={{ transitionDelay: isMenuOpen ? "300ms" : "0s" }}
-              onClick={() => {
-                const link = document.createElement("a");
-                link.href = "/RajaVenkatesh_Resume.pdf";
-                link.download = "RajaVenkatesh_Resume.pdf";
-                link.click();
-              }}
-            >
-              Download Resume
-            </button>
+            {/* <DownloadButton /> */}
           </nav>
         </div>
       </div>
