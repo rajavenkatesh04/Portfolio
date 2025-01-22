@@ -1,6 +1,4 @@
 import React from 'react';
-import { Linkedin, Twitter, Globe } from 'lucide-react';
-import Weather from './Weather';
 
 const Footer = () => {
   return (
