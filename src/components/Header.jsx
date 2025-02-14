@@ -74,7 +74,7 @@ const Header = () => {
               {item.label}
             </a>
           ))}
-          {/* <DownloadButton /> */}
+          <DownloadButton />
         </nav>
       </header>
 
@@ -121,7 +121,7 @@ const Header = () => {
                 {item.label}
               </a>
             ))}
-            {/* <DownloadButton /> */}
+            <DownloadButton />
           </nav>
         </div>
       </div>
